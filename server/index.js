@@ -12,6 +12,11 @@ app.get('/questions', (req, res) => {
     res.send(questions)
 })
 
+app.get('/questions/:id', (req, res) => {
+    const filteredById = questions.find(question => question.id === Number(req.params.id))
+    res.send(filteredById)
+})
+
 app.post('/questions', (req, res) => {
     const question = {
         ...req.body,
@@ -21,6 +26,8 @@ app.post('/questions', (req, res) => {
     questions.push(question)
     res.send(question)
 })
+
+
 
 app.listen(port, () => {
     console.log(`http://localhost:${port}`)
