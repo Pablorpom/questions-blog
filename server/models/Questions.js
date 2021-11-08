@@ -8,7 +8,7 @@ class Questions {
         return this.data
     }
     getById(id){
-        return this.data.find(question => question.id === Number(id))
+        return this.data.find(question => question.id === id)
     }
     create(obj){
         const question = {
