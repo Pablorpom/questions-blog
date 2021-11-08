@@ -1,30 +1,23 @@
 const express = require('express')
 const bodyParser = require('body-parser');
-const getRandomId = require('./utils/getRandomId')
+const Questions = require('./models/Questions')
 const app = express()
 const port = 3000
 
 app.use(bodyParser.json());
 
-const questions = []
+const questions = new Questions()
 
 app.get('/questions', (req, res) => {
-    res.send(questions)
+    res.send(questions.getAll())
 })
 
 app.get('/questions/:id', (req, res) => {
-    const filteredById = questions.find(question => question.id === Number(req.params.id))
-    res.send(filteredById)
+    res.send(questions.getById(req.params.id))
 })
 
 app.post('/questions', (req, res) => {
-    const question = {
-        ...req.body,
-        id: getRandomId(),
-        votes: 0
-    }
-    questions.push(question)
-    res.send(question)
+    res.send(questions.create(req.body))
 })
 
 
