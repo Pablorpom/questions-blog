@@ -24,4 +24,9 @@ describe('Questions', ()=>{
         expect(questions.getById(question2.id).question).toBe("Why?")
         expect(questions.getById(question2.id).votes).toBe(0)
     });
+
+    it('Should add 1 vote to the object brought by getById', ()=>{
+        questions.vote(question.id)
+        expect(question.votes).toBe(1)
+    })
 })

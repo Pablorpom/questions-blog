@@ -19,6 +19,10 @@ class Questions {
         this.data.push(question)
         return question
     }
+    vote(id){
+        const obj = this.getById(id);
+        obj.votes += 1
+    }
 }
 
 module.exports = Questions;
