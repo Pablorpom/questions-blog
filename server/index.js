@@ -20,7 +20,9 @@ app.post('/questions', (req, res) => {
     res.send(questions.create(req.body))
 });
 
-
+app.put('/questions/:id', (req, res) => {
+    res.send(questions.vote(req.params.id))
+})
 
 app.listen(port, () => {
     console.log(`http://localhost:${port}`)

@@ -19,9 +19,26 @@ class Questions {
         this.data.push(question)
         return question
     }
+    
+    getIndexById(id){
+        return this.data.findIndex((question) => question.id === id)
+    }
+
     vote(id){
-        const obj = this.getById(id);
-        obj.votes += 1
+        const index = this.getIndexById(id);
+        const firstPart = this.data.slice(0, index);
+        const secondPart = this.data.slice(index + 1, this.data.length);
+        const questionVoted = this.data[index]
+
+        this.data = [
+            ...firstPart, 
+            {
+                ...questionVoted, 
+                votes: questionVoted.votes + 1
+            }, 
+            ...secondPart
+        ]
+        return this.data[index]
     }
 }
 

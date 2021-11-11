@@ -27,6 +27,6 @@ describe('Questions', ()=>{
 
     it('Should add 1 vote to the object brought by getById', ()=>{
         questions.vote(question.id)
-        expect(question.votes).toBe(1)
+        expect(questions.getById(question.id).votes).toBe(1)
     })
 })
