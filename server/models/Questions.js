@@ -17,6 +17,7 @@ class Questions {
             votes: 0
         }
         this.data.push(question)
+        this.onChange(this.data)
         return question
     }
     
@@ -38,7 +39,12 @@ class Questions {
             }, 
             ...secondPart
         ]
+        this.onChange(this.data)
         return this.data[index]
+    }
+
+    addOnChangeListener(func){
+        this.onChange = func
     }
 }
 

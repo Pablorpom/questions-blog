@@ -7,6 +7,9 @@ const port = 3000
 app.use(bodyParser.json());
 
 const questions = new Questions();
+questions.addOnChangeListener((data)=>{
+    console.log(data);
+})
 
 app.get('/questions', (req, res) => {
     res.send(questions.getAll())
