@@ -46,6 +46,11 @@ class Questions {
     addOnChangeListener(func){
         this.onChange = func
     }
+
+    delete(id){
+        const index = this.getIndexById(id);
+        this.data.splice(index, 1)
+    }
 }
 
 module.exports = Questions;

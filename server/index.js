@@ -29,6 +29,10 @@ app.put('/questions/:id', (req, res) => {
     res.send(questions.vote(req.params.id))
 })
 
+app.delete('/questions/:id', (req, res) => {
+    res.send(questions.delete(req.params.id))
+})
+
 app.listen(port, () => {
     console.log(`http://localhost:${port}`)
 });
