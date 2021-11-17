@@ -11,7 +11,7 @@ function Form(props){
                 type="submit" 
                 onClick={(e)=> {
                     e.preventDefault();
-                    props.onButtonClick(questionInput.current.value)
+                    props.onSendButtonClick(questionInput.current.value)
                     formRef.current.reset()
                 }} 
             >Send</button>

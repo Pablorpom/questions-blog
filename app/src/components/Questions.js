@@ -1,11 +1,20 @@
 function Questions(props){
     return(
-        <ul>
-            {props.data.map(({question, id})=>{
-                return <li key={id}>{question}</li>
+        <div>
+            {props.data.map(({question, id, votes})=>{
+                return(
+                    <div key={id}>
+                        <div>{question}</div>
+                        <div>Votes: {votes}</div>
+                        <button onClick={()=>{
+                            props.onVoteButtonClick(id)
+                            }
+                        }>vote</button>
+                    </div>
+                )
             })
             }
-        </ul>
+        </div>
     ) 
 }
 
