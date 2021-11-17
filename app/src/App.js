@@ -24,6 +24,11 @@ function App() {
     await axios.put(`${questionsURL}/${id}`);
     fetchData();
   }
+
+  const onDeleteButtonClick = async (id)=>{
+    await axios.delete(`${questionsURL}/${id}`);
+    fetchData();
+  }
   
   useEffect(()=>{
     fetchData();
@@ -32,7 +37,11 @@ function App() {
   return (
     <>
     <Form onSendButtonClick={onSendButtonClick} />
-    <Questions data={questions} onVoteButtonClick={onVoteButtonClick} />
+    <Questions 
+      data={questions} 
+      onVoteButtonClick={onVoteButtonClick} 
+      onDeleteButtonClick={onDeleteButtonClick}
+    />
     </>
     )
   }

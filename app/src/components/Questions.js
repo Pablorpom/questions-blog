@@ -10,6 +10,10 @@ function Questions(props){
                             props.onVoteButtonClick(id)
                             }
                         }>vote</button>
+                        <button onClick={()=>{
+                            props.onDeleteButtonClick(id)
+                            }
+                        }>Delete</button>
                     </div>
                 )
             })
